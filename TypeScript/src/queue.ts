@@ -1,4 +1,3 @@
-package edu.cmu.cs.cs214.rec02;
 
 /**
  * Interface describing a first-in, first-out structure for integers. Values are
@@ -6,50 +5,52 @@ package edu.cmu.cs.cs214.rec02;
  * process values in the order that they appear and to store the state of a
  * buffered object.
  *
- * @author Alex Lockwood
+ * @author Alex Lockwood, Christian Kaestner
  */
-public interface IntQueue {
+interface IntQueue {
 
-    /**
+  /**
      * Remove all the elements from the queue.
      */
-    void clear();
+  clear: () => void
 
-    /**
+  /**
      * Fetch and remove the element at the head of the queue.
      *
-     * @return 	The element at the head of the queue. Returns
-     * 			null if the queue is empty.
+     * @return The element at the head of the queue. Returns
+     *         null if the queue is empty.
      */
-    Integer dequeue();
+  dequeue: () => number | null
 
-    /**
+  /**
      * Add the element to the tail of the queue.
      *
      * @param value	The element to place at the tail of the queue.
-     * @return 		Whether the element was enqueued successfully.
+     * @return      Whether the element was enqueued successfully.
      */
-    boolean enqueue(Integer value);
+  enqueue: (value: number) => boolean
 
-    /**
+  /**
      * Determine if the queue is empty.
      *
      * @return <tt>true</tt> if the queue is empty, <tt>false</tt> otherwise.
      */
-    boolean isEmpty();
+  isEmpty: () => boolean
 
-    /**
+  /**
      * Fetch the element at the head of the queue.
      *
      * @return The element at the head of the queue. Returns null if queue
-     * 		   is empty.
+     *         is empty.
      */
-    Integer peek();
+  peek: () => number | null
 
-    /**
+  /**
      * Determine the number of elements in the queue.
      *
      * @return The number of elements in the queue.
      */
-    int size();
+  size: () => number
 }
+
+export { IntQueue }

@@ -1,5 +1,3 @@
-For Java please switch to the `Java` branch of this repository.
-
 # Testing Infrastructure in TypeScript and Jest
 
 This repository is set up for testing with _Jest_ (_ts-jest_ to be precise), automated through _npm_.

@@ -10,7 +10,7 @@ Finally `jest.config.js` indicates to _Jest_ where to find the tests.
 
 ----
 
-You will likely want to explore IDE integration for test execution and coverage in your IDE, but also ensure that tests still execute with *npm* in a Continuous Integration environment (e.g. Travis-CI).
+You will likely want to explore IDE integration for test execution and coverage in your IDE, but also ensure that tests still execute with *npm* in a Continuous Integration environment (e.g. github actions).
 
 The following commands might be useful:
 * `npm install` install all dependencies, including TypeScript and Jest.

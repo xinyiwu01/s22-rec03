@@ -1,5 +1,3 @@
-For TypeScript please switch to the `TypeScript` branch of this repository.
-
 # Testing Infrastructure in Java
 
 This repository is set up for testing with _JUnit_ and test coverage with _Jacoco_, both automated through _Maven_.

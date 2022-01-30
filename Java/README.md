@@ -2,7 +2,7 @@
 
 This repository is set up for testing with _JUnit_ and test coverage with _Jacoco_, both automated through _Maven_.
 
-You will likely want to explore IDE integration for test execution and coverage in your IDE, but also ensure that tests still execute with Maven in a Continuous Integration environment (e.g. Travis-CI).
+You will likely want to explore IDE integration for test execution and coverage in your IDE, but also ensure that tests still execute with Maven in a Continuous Integration environment (e.g. github actions).
 
 The following commands might be useful:
 * `mvn clean` reset the build

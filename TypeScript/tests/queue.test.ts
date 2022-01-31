@@ -10,6 +10,16 @@ test("newly created list should be empty", () => {
     expect(createQueue().isEmpty()).toBeTruthy()
 })
 
+test("newly created list should peek null", () => {
+    expect(createQueue().peek()).toBeNull()
+})
+
+test("list with 1 element is not empty", () => {
+    const queue = createQueue()
+    queue.enqueue(2)
+    expect(createQueue().isEmpty()).toBeFalsy()
+})
+
 let param = [5, 10, 1000000]
 // parameterized test, apply to each value of the parameter
 test.each(param)("enqueued number %d can be dequeued", (nr) => {

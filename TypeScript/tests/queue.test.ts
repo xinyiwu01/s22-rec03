@@ -6,7 +6,7 @@ let createQueue = newLinkedListIntQueue
 // let createQueue = newArrayIntQueue
 
 // TODOs:
-// test dequeue and clear function.
+// write more test cases to test dequeue and clear functions.
 
 test("test isEmpty: newly created list should be empty", () => {
     expect(createQueue().isEmpty()).toBeTruthy()

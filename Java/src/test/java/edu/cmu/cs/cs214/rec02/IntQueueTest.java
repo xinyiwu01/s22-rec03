@@ -1,6 +1,7 @@
 package edu.cmu.cs.cs214.rec02;
 
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,14 +14,13 @@ import static org.junit.Assert.*;
 
 
 /**
- * TODO: Write detailed unit tests for the {@link LinkedIntQueue} and
+ * TODO: Write more unit tests to test the implementation of ArrayIntQueue
+ * for the {@link LinkedIntQueue} and
  * {@link ArrayIntQueue} classes, as described in the handout. The
  * {@link ArrayIntQueue} class contains a few bugs. Use the tests you wrote for
  * the {@link LinkedIntQueue} class to test the {@link ArrayIntQueue}
- * implementation. Refine your tests to achieve 100% line coverage and use them
- * to determine and correct the bugs!
  *
- * @author Alex Lockwood
+ * @author Alex Lockwood, George Guo
  */
 public class IntQueueTest {
 
@@ -32,8 +32,8 @@ public class IntQueueTest {
     @Before
     public void setUp() {
         // comment/uncomment these lines to test each class
-//        mQueue = new LinkedIntQueue();
-         mQueue = new ArrayIntQueue();
+        mQueue = new LinkedIntQueue();
+//        mQueue = new ArrayIntQueue();
     }
 
     @Test
@@ -60,7 +60,27 @@ public class IntQueueTest {
     }
 
     @Test
-    public void testContent() throws IOException {
+    public void testEnqueue() {
+        List<Integer> list = new ArrayList<>(List.of(1, 2, 3));
+        for (int i = 0; i < list.size(); i++) {
+            mQueue.enqueue(list.get(i));
+            assertEquals(list.get(0), mQueue.peek());
+            assertEquals(i + 1, mQueue.size());
+        }
+    }
+
+    @Test
+    public void testDequeue() {
+        List<Integer> list = new ArrayList<>(List.of(1, 2, 3));
+        list.forEach(n -> mQueue.enqueue(n));
+        for (int i = 0; i < list.size(); i++) {
+            assertEquals(list.get(i), mQueue.dequeue());
+            assertEquals(list.size() - i - 1, mQueue.size());
+        }
+    }
+
+    @Test
+    public void testDequeueEnqueue() throws IOException {
         InputStream in = new FileInputStream("src/test/resources/data.txt");
         try (Scanner scanner = new Scanner(in)) {
             scanner.useDelimiter("\\s*fish\\s*");
@@ -73,7 +93,6 @@ public class IntQueueTest {
                 mQueue.enqueue(input);
             }
 
-            // Used boxed type to pacify assertEquals overload resolution
             for (Integer result : correctResult) {
                 assertEquals(mQueue.dequeue(), result);
             }

@@ -5,7 +5,7 @@ import { IntQueue } from './queue'
  * the queue starts out at the head of the array, allowing the queue to grow and
  * shrink in constant time.
  *
- * TODO: This implementation contains three bugs! Use your tests to determine the
+ * TODO: This implementation contains two bugs! Use your tests to determine the
  * source of the bugs and correct them!
  *
  * @author Alex Lockwood
@@ -58,7 +58,7 @@ function newArrayIntQueue (): IntQueue {
       newData.fill(0)
       Object.seal(newData)
       for (let i = head; i < oldCapacity; i++) {
-        newData[oldCapacity - i - head] = elementData[i]
+        newData[i - head] = elementData[i]
       }
       for (let i = 0; i < head; i++) {
         newData[head - i] = elementData[i]

@@ -2,34 +2,44 @@ import { newArrayIntQueue } from "../src/arrayqueue";
 import { newLinkedListIntQueue } from "../src/linkedlistqueue.js";
 
 // pick one queue implementation, can run test easily for both, due to subtype polymorphism
-// let createQueue = newLinkedListIntQueue
-let createQueue = newArrayIntQueue
+let createQueue = newLinkedListIntQueue
+// let createQueue = newArrayIntQueue
 
-// simple test
-test("newly created list should be empty", () => {
+// TODOs:
+// test dequeue and clear function.
+
+test("test isEmpty: newly created list should be empty", () => {
     expect(createQueue().isEmpty()).toBeTruthy()
 })
 
-test("newly created list should peek null", () => {
+test("test isEmpty: list with 1 element is not empty", () => {
+    const queue = createQueue()
+    queue.enqueue(2)
+    expect(queue.isEmpty()).toBeFalsy()
+})
+
+test("test peek: newly created list should peek null", () => {
+
     expect(createQueue().peek()).toBeNull()
 })
 
-test("list with 1 element is not empty", () => {
+test("test peek: queue with 2 element should peek the last one", () => {
     const queue = createQueue()
     queue.enqueue(2)
-    expect(createQueue().isEmpty()).toBeFalsy()
+    queue.enqueue(3)
+    expect(queue.peek()).toEqual(3)
 })
 
 let param = [5, 10, 1000000]
 // parameterized test, apply to each value of the parameter
-test.each(param)("enqueued number %d can be dequeued", (nr) => {
+test.each(param)("test enqueue: enqueued number %d is correct", (nr) => {
     const queue = createQueue()
     queue.enqueue(nr)
     expect(queue.peek()).toBe(nr)
 })
 
 // can nest tests with shared descriptions for better readability
-describe("queue length", ()=> {
+describe("test size: ", ()=> {
     test("1 entry", ()=>{
         const queue = createQueue()
         queue.enqueue(5)

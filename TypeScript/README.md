@@ -4,8 +4,6 @@ This repository is set up for testing with _Jest_ (_ts-jest_ to be precise), aut
 
 Note how _Jest_ is set up in `package.json`: It adds development dependencies for `jest`, `ts-jest` and `@types/jest` (all three needed for _Jest_ in _TypeScript_). It also adds a `test` script to tell npm what to execute with `npm test`.
 
-Also in `.travis.yml` there is now an extra step to execute the tests.
-
 Finally `jest.config.js` indicates to _Jest_ where to find the tests.
 
 ----

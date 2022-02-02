@@ -25,6 +25,7 @@ import static org.junit.Assert.*;
 public class IntQueueTest {
 
     private IntQueue mQueue;
+    private List<Integer> testList;
 
     /**
      * Called before each test.
@@ -34,6 +35,8 @@ public class IntQueueTest {
         // comment/uncomment these lines to test each class
         mQueue = new LinkedIntQueue();
 //        mQueue = new ArrayIntQueue();
+
+        testList = new ArrayList<>(List.of(1, 2, 3));
     }
 
     @Test
@@ -61,26 +64,24 @@ public class IntQueueTest {
 
     @Test
     public void testEnqueue() {
-        List<Integer> list = new ArrayList<>(List.of(1, 2, 3));
-        for (int i = 0; i < list.size(); i++) {
-            mQueue.enqueue(list.get(i));
-            assertEquals(list.get(0), mQueue.peek());
+        for (int i = 0; i < testList.size(); i++) {
+            mQueue.enqueue(testList.get(i));
+            assertEquals(testList.get(0), mQueue.peek());
             assertEquals(i + 1, mQueue.size());
         }
     }
 
     @Test
     public void testDequeue() {
-        List<Integer> list = new ArrayList<>(List.of(1, 2, 3));
-        list.forEach(n -> mQueue.enqueue(n));
-        for (int i = 0; i < list.size(); i++) {
-            assertEquals(list.get(i), mQueue.dequeue());
-            assertEquals(list.size() - i - 1, mQueue.size());
+        testList.forEach(n -> mQueue.enqueue(n));
+        for (int i = 0; i < testList.size(); i++) {
+            assertEquals(testList.get(i), mQueue.dequeue());
+            assertEquals(testList.size() - i - 1, mQueue.size());
         }
     }
 
     @Test
-    public void testDequeueEnqueue() throws IOException {
+    public void testContent() throws IOException {
         InputStream in = new FileInputStream("src/test/resources/data.txt");
         try (Scanner scanner = new Scanner(in)) {
             scanner.useDelimiter("\\s*fish\\s*");

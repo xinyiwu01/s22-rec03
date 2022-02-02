@@ -90,7 +90,7 @@ public class IntQueueTest {
             while (scanner.hasNextInt()) {
                 int input = scanner.nextInt();
                 correctResult.add(input);
-                System.out.println(input);
+                System.out.println("enqueue: " + input);
                 mQueue.enqueue(input);
             }
 

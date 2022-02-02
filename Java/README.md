@@ -9,4 +9,4 @@ The following commands might be useful:
 * `mvn test` execute tests and write a test coverage report in `target/site/jacoco/index.html`
 * `mvn site` build and test the project and write results in `target/site/index.html` (includes coverage and test results)
 
-See the comments in `pom.xml` and `.travis.yml` for technical details of this setup.
+See the comments in `pom.xml` for technical details of this setup.

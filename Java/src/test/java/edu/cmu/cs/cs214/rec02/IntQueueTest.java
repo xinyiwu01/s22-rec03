@@ -72,6 +72,11 @@ public class IntQueueTest {
     }
 
     @Test
+    public void testDequeueEmpty() {
+        assertNull(mQueue.dequeue());
+    }
+
+    @Test
     public void testDequeue() {
         testList.forEach(n -> mQueue.enqueue(n));
         for (int i = 0; i < testList.size(); i++) {
@@ -98,6 +103,21 @@ public class IntQueueTest {
                 assertEquals(mQueue.dequeue(), result);
             }
         }
+    }
+
+    @Test
+    public void testEnsureCapacity() {
+        for (int i = 0; i < 11; i++) {
+            mQueue.enqueue(i);
+        }
+        assertEquals(mQueue.size(), 11);
+    }
+
+    @Test
+    public void testClear() {
+        testList.forEach(n -> mQueue.enqueue(n));
+        mQueue.clear();
+        assertTrue(mQueue.isEmpty());
     }
 
 

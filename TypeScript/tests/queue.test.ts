@@ -53,3 +53,23 @@ describe("test size: ", ()=> {
         expect(queue.size()).toBe(11)
     })
 })
+
+test("test dequeue: newly created list should dequeue null", () => {
+    expect(createQueue().dequeue()).toBeNull()
+})
+
+test("test dequeue: queue with 2 element should dequeue the last one", () => {
+    const queue = createQueue()
+    queue.enqueue(2)
+    queue.enqueue(3)
+    expect(queue.dequeue()).toEqual(3)
+})
+
+test("test clear: queue with 10 element should remove all elements", () => {
+    const queue = createQueue()
+    for (let i=0;i<10;i++) {
+        queue.enqueue(i);
+    }
+    queue.clear()
+    expect(queue.isEmpty()).toBeTruthy()
+})

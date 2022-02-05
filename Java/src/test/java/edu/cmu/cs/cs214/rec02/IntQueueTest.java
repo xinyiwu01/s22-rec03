@@ -111,6 +111,11 @@ public class IntQueueTest {
             mQueue.enqueue(i);
         }
         assertEquals(mQueue.size(), 11);
+        Integer input = 0;
+        assertEquals(input, mQueue.peek());
+        for (Integer i = 0; i < 11; i++) {
+            assertEquals(mQueue.dequeue(), i);
+        }
     }
 
     @Test
